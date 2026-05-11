@@ -250,7 +250,7 @@ export default function Home() {
       <footer style={{ background: '#2d2d2a', width: '100%', textAlign: 'center', padding: 'clamp(32px, 4vw, 56px) clamp(20px, 5vw, 80px)' }}>
         <p style={{ color: '#c8a96e', fontWeight: 800, fontSize: '18px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: '0 0 8px' }}>NestFix</p>
         <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: '14px', margin: '0 0 6px' }}>Professional curtain installation · Klang Valley</p>
-        <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: '12px', margin: 0 }}>nestfix.my · WhatsApp +60 12-345 6789</p>
+        <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: '12px', margin: 0 }}>nestfix.my · WhatsApp +60 16-346 8998</p>
       </footer>
     </div>
   )

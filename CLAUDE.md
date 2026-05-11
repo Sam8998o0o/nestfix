@@ -438,7 +438,7 @@ export const AREA_OPTIONS = [
 ]
 
 // ⚠️ IMPORTANT: Update this with the real WhatsApp number before going live
-export const OWNER_WHATSAPP = '60123456789'
+export const OWNER_WHATSAPP = '6'
 ```
 
 ---
