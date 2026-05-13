@@ -1,13 +1,12 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { IconBrandWhatsapp, IconCheck, IconStarFilled, IconChevronDown } from '@tabler/icons-react'
+import { IconBrandWhatsapp, IconCheck, IconChevronDown, IconHome, IconBuildingSkyscraper, IconBuilding, IconWindowMaximize } from '@tabler/icons-react'
 import WindowCard from '@/components/WindowCard'
 import TotalBox from '@/components/TotalBox'
-import ReviewCard from '@/components/ReviewCard'
 import Navbar from '@/components/Navbar'
 import {
-  CURTAIN_TYPES, AREA_OPTIONS, OWNER_WHATSAPP, REVIEWS,
+  CURTAIN_TYPES, AREA_OPTIONS, OWNER_WHATSAPP, RECENT_BOOKINGS,
   MINIMUM_ORDER, FLOOR_CEILING_MIN_HEIGHT, FLOOR_CEILING_MAX_HEIGHT,
 } from '@/lib/constants'
 import { calcWindow } from '@/lib/pricing'
@@ -29,6 +28,12 @@ function StepLabel({ n, label }: { n: number; label: string }) {
       <span style={{ fontSize: 'clamp(11px, 1.1vw, 13px)', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#5c5850' }}>{label}</span>
     </div>
   )
+}
+
+function PropertyIcon({ type }: { type: string }) {
+  if (type === 'Condo') return <IconBuildingSkyscraper size={15} />
+  if (type === 'Office') return <IconBuilding size={15} />
+  return <IconHome size={15} />
 }
 
 export default function Home() {
@@ -91,13 +96,40 @@ export default function Home() {
       {/* HERO */}
       <section style={{ background: '#2d2d2a', width: '100%' }}>
         <div style={{ ...wrap, paddingTop: 'clamp(44px, 6vw, 88px)', paddingBottom: 'clamp(44px, 6vw, 88px)' }}>
-          <p style={{ color: '#c8a96e', fontSize: '11px', fontWeight: 800, letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 18px' }}>NESTFIX</p>
-          <h1 style={{ color: '#fff', fontWeight: 800, lineHeight: 1.1, margin: '0 0 16px', fontSize: 'clamp(28px, 4.5vw, 60px)' }}>
-            Curtain installation,<br />made effortless.
+          <p style={{ color: '#c8a96e', fontSize: '18px', fontWeight: 800, letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 18px' }}>NESTFIX</p>
+          <h1 style={{ color: '#fff', fontWeight: 700, lineHeight: 1.1, margin: '0 0 16px', fontSize: 'clamp(28px, 4.5vw, 60px)' }}>
+            Helps you get instant curtain & blinds installation estimates and connects you with nearby installers,<br />made effortless.
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: 'clamp(14px, 1.4vw, 19px)', lineHeight: 1.65, margin: 0, maxWidth: '520px' }}>
             Add each window below, get a total price &amp; book via WhatsApp.
           </p>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section style={{ background: '#f5f0e8', padding: 'clamp(48px, 6vw, 72px) clamp(20px, 5vw, 80px)' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', color: '#c8a96e', textTransform: 'uppercase', margin: '0 0 12px' }}>
+            Simple process
+          </p>
+          <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 500, color: '#1c1c1a', margin: '0 0 40px', lineHeight: 1.25 }}>
+            How NestFix works
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: 24 }}>
+            {[
+              { n: 1, title: 'Add your window sizes', desc: "Select the blinds, curtain track, or motorized track you've purchased for installation." },
+              { n: 2, title: 'Get instant estimate', desc: 'Upload window photos and receive estimated labour pricing.' },
+              { n: 3, title: 'Installer confirms final quotation', desc: 'A nearby installer contacts you to confirm timing and final installation details.' },
+            ].map(({ n, title, desc }) => (
+              <div key={n} style={{ background: '#fffef9', border: '1px solid #ddd8cc', borderRadius: 16, padding: '28px 24px' }}>
+                <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#2d2d2a', color: '#c8a96e', fontSize: 15, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
+                  {n}
+                </div>
+                <p style={{ fontSize: 16, fontWeight: 500, color: '#1c1c1a', margin: '0 0 10px', lineHeight: 1.35 }}>{title}</p>
+                <p style={{ fontSize: 14, color: '#5c5850', margin: 0, lineHeight: 1.65 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -222,26 +254,54 @@ export default function Home() {
         </section>
       </div>
 
-      {/* REVIEWS */}
+      {/* RECENT BOOKINGS */}
       <section>
         <div style={{ background: '#2d2d2a', width: '100%' }}>
           <div style={{ ...wrap, paddingTop: 'clamp(32px, 4vw, 56px)', paddingBottom: 'clamp(28px, 3.5vw, 48px)' }}>
-            <h2 style={{ color: '#fff', fontWeight: 800, margin: '0 0 6px', fontSize: 'clamp(20px, 2.5vw, 32px)' }}>What our customers say</h2>
-            <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: '15px', margin: '0 0 24px' }}>Verified reviews from real bookings</p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <span style={{ color: '#c8a96e', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 800, lineHeight: 1 }}>4.9</span>
-              <div>
-                <div style={{ display: 'flex', gap: '3px', marginBottom: '6px' }}>
-                  {Array.from({ length: 5 }).map((_, i) => <IconStarFilled key={i} size={18} style={{ color: '#c8a96e' }} />)}
-                </div>
-                <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: '13px', margin: 0 }}>Based on 84 reviews</p>
-              </div>
-            </div>
+            <p style={{ fontSize: 12, fontWeight: 500, letterSpacing: '0.12em', color: '#c8a96e', textTransform: 'uppercase', margin: '0 0 10px' }}>
+              Recent work
+            </p>
+            <h2 style={{ color: '#fff', fontWeight: 800, margin: '0 0 6px', fontSize: 'clamp(20px, 2.5vw, 32px)' }}>
+              Recent booking examples
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: '15px', margin: 0 }}>
+              Real jobs completed by our installer in Klang Valley
+            </p>
           </div>
         </div>
         <div style={{ ...wrap, paddingTop: 'clamp(24px, 3vw, 40px)', paddingBottom: 'clamp(24px, 3vw, 40px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))', gap: '16px' }}>
-            {REVIEWS.map(review => <ReviewCard key={review.name} review={review} />)}
+            {RECENT_BOOKINGS.map((booking, i) => (
+              <div key={i} style={{ background: '#fffef9', border: '1px solid #ddd8cc', borderRadius: 16, overflow: 'hidden' }}>
+                {/* Card header */}
+                <div style={{ background: '#ede8df', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ color: '#5c5850', display: 'flex', alignItems: 'center' }}>
+                      <PropertyIcon type={booking.propertyType} />
+                    </span>
+                    <span style={{ fontSize: 14, fontWeight: 500, color: '#1c1c1a' }}>{booking.area}</span>
+                    <span style={{ fontSize: 13, color: '#9c9890' }}>{booking.propertyType}</span>
+                  </div>
+                  <span style={{ fontSize: 12, color: '#a8894e', background: '#f5ecd8', border: '1px solid #c8a96e', borderRadius: 99, padding: '3px 10px', fontWeight: 500, whiteSpace: 'nowrap' }}>
+                    Completed
+                  </span>
+                </div>
+                {/* Card body */}
+                <div style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  <p style={{ fontSize: 15, fontWeight: 500, color: '#1c1c1a', margin: 0 }}>
+                    {booking.shortService}
+                  </p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#5c5850', fontSize: 13 }}>
+                    <IconWindowMaximize size={14} />
+                    {booking.windows} window{booking.windows > 1 ? 's' : ''}
+                  </div>
+                  <div style={{ borderTop: '1px solid #ddd8cc', paddingTop: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ fontSize: 15, fontWeight: 500, color: '#a8894e' }}>{booking.estimatedRange}</span>
+                    <span style={{ fontSize: 12, color: '#9c9890' }}>Done in {booking.completedIn}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
