@@ -60,6 +60,9 @@ export const AREA_OPTIONS = [
 // ⚠️ IMPORTANT: Update this with the real WhatsApp number before going live
 export const OWNER_WHATSAPP = '60163468998'
 
+// Platform fee — installer receives this % of customer total
+export const PLATFORM_FEE_RATE = 0.88
+
 export const RECENT_BOOKINGS = [
   {
     area: 'Cheras',

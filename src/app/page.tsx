@@ -106,6 +106,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* INSTALLER CTA */}
+      <section style={{ background: '#2d2d2a', width: '100%' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(40px, 5vw, 64px) clamp(20px, 5vw, 80px)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 32 }}>
+          <div style={{ flex: '1 1 280px' }}>
+            <p style={{ color: '#c8a96e', fontSize: 11, fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', margin: '0 0 12px' }}>FOR INSTALLERS</p>
+            <h2 style={{ color: '#fff', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 800, margin: '0 0 12px', lineHeight: 1.2 }}>Earn more with NestFix</h2>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 'clamp(14px, 1.4vw, 16px)', margin: 0, lineHeight: 1.7, maxWidth: 440 }}>
+              Get curtain installation jobs in your area. Set your own schedule. We handle the bookings.
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, flexShrink: 0 }}>
+            <a
+              href="/installer/register"
+              style={{ display: 'inline-block', background: '#c8a96e', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 15, padding: '13px 28px', borderRadius: 99, textAlign: 'center', transition: 'background 0.15s' }}
+              onMouseOver={e => ((e.currentTarget as HTMLAnchorElement).style.background = '#a8894e')}
+              onMouseOut={e => ((e.currentTarget as HTMLAnchorElement).style.background = '#c8a96e')}
+            >
+              Register as Installer
+            </a>
+            <a
+              href="/installer/jobs"
+              style={{ display: 'inline-block', background: 'transparent', color: '#fff', textDecoration: 'none', fontWeight: 600, fontSize: 15, padding: '12px 28px', borderRadius: 99, textAlign: 'center', border: '1.5px solid rgba(255,255,255,0.35)', transition: 'border-color 0.15s' }}
+              onMouseOver={e => ((e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.7)')}
+              onMouseOut={e => ((e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.35)')}
+            >
+              Installer Login
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
       <section style={{ background: '#f5f0e8', padding: 'clamp(48px, 6vw, 72px) clamp(20px, 5vw, 80px)' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
@@ -307,10 +338,41 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: '#2d2d2a', width: '100%', textAlign: 'center', padding: 'clamp(32px, 4vw, 56px) clamp(20px, 5vw, 80px)' }}>
-        <p style={{ color: '#c8a96e', fontWeight: 800, fontSize: '18px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: '0 0 8px' }}>NestFix</p>
-        <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: '14px', margin: '0 0 6px' }}>Professional curtain installation · Klang Valley</p>
-        <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: '12px', margin: 0 }}>nestfix.my · WhatsApp +60 16-346 8998</p>
+      <footer style={{ background: '#2d2d2a', width: '100%' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(40px, 5vw, 64px) clamp(20px, 5vw, 80px) clamp(28px, 4vw, 48px)', display: 'flex', flexWrap: 'wrap', gap: 40, justifyContent: 'space-between' }}>
+          {/* Left col */}
+          <div style={{ flex: '1 1 220px' }}>
+            <p style={{ color: '#c8a96e', fontWeight: 800, fontSize: 18, letterSpacing: '0.2em', textTransform: 'uppercase', margin: '0 0 10px' }}>NestFix</p>
+            <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: 14, margin: '0 0 6px' }}>Professional curtain installation · Klang Valley</p>
+            <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: 12, margin: 0 }}>nestfix.my · WhatsApp +60 16-346 8998</p>
+          </div>
+          {/* Right col */}
+          <div style={{ flex: '0 1 180px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', margin: '0 0 14px' }}>Installer</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <a
+                href="/installer/register"
+                style={{ color: 'rgba(255,255,255,0.45)', fontSize: 14, textDecoration: 'none', transition: 'color 0.15s' }}
+                onMouseOver={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#c8a96e')}
+                onMouseOut={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.45)')}
+              >
+                Register as installer →
+              </a>
+              <a
+                href="/installer/jobs"
+                style={{ color: 'rgba(255,255,255,0.45)', fontSize: 14, textDecoration: 'none', transition: 'color 0.15s' }}
+                onMouseOver={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#c8a96e')}
+                onMouseOut={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.45)')}
+              >
+                Installer login →
+              </a>
+            </div>
+          </div>
+        </div>
+        {/* Bottom divider */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '16px clamp(20px, 5vw, 80px)', textAlign: 'center' }}>
+          <p style={{ color: 'rgba(255,255,255,0.15)', fontSize: 12, margin: 0 }}>© {new Date().getFullYear()} NestFix. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   )
